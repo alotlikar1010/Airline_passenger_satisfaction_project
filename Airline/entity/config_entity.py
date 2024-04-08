@@ -28,9 +28,10 @@ class DataIngestionConfig:
             data_ingestion_key=config_data[DATA_INGESTION_CONFIG_KEY]
             
             
-            self.database_name=config_data[DATA_INGESTION_DATABASE_NAME]
-            self.collection_name=config_data[DATA_INGESTION_COLLECTION_NAME]
-          
+            # self.database_name=config_data[DATA_INGESTION_DATABASE_NAME]
+            # self.collection_name=config_data[DATA_INGESTION_COLLECTION_NAME]
+            self.database_name="airline"
+            self.collection_name="collection"
             
             
             self.data_ingestion_dir = os.path.join(training_pipeline_config.artifact_dir ,data_ingestion_key[DATA_INGESTION_ARTIFACT_DIR])

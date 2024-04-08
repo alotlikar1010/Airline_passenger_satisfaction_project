@@ -18,7 +18,7 @@ CONFIG_FILE_PATH=os.path.join(ROOT_DIR,CONFIG_DIR,SCHEMA_FILE)
 # Data Ingestion 
 # Data Ingestion related variable
 DATA_INGESTION_CONFIG_KEY = "data_ingestion_config"
-DATA_INGESTION_DATABASE_NAME= "database"
+DATA_INGESTION_DATABASE_NAME= "airline"
 DATA_INGESTION_COLLECTION_NAME= "collection"
 DATA_INGESTION_ARTIFACT_DIR = "data_ingestion"
 DATA_INGESTION_RAW_DATA_DIR_KEY = "raw_data_dir"

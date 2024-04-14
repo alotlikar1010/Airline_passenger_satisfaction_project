@@ -5,7 +5,7 @@ from multiprocessing import Process
 from Airline.entity.config_entity import *
 from Airline.entity.artifact_entity import *
 from Airline.components.data_ingestion import DataIngestion
-
+from Airline.components.data_transformation import DataTransformation
 import  sys
 
 
@@ -32,15 +32,15 @@ class Pipeline():
         
  
     
-    # def start_data_transformation(self,data_ingestion_artifact: DataIngestionArtifact) -> DataTransformationArtifact:
-    #     try:
-    #         data_transformation = DataTransformation(
-    #             data_transformation_config = DataTransformationConfig(self.training_pipeline_config),
-    #             data_ingestion_artifact = data_ingestion_artifact)
+    def start_data_transformation(self,data_ingestion_artifact: DataIngestionArtifact) -> DataTransformationArtifact:
+        try:
+            data_transformation = DataTransformation(
+                data_transformation_config = DataTransformationConfig(self.training_pipeline_config),
+                data_ingestion_artifact = data_ingestion_artifact)
 
-    #         return data_transformation.initiate_data_transformation()
-    #     except Exception as e:
-    #         raise ApplicationException(e,sys) from e
+            return data_transformation.initiate_data_transformation()
+        except Exception as e:
+            raise AirlineException(e,sys) from e
         
 
    
@@ -63,7 +63,7 @@ class Pipeline():
              #data ingestion
             data_ingestion_artifact = self.start_data_ingestion()
            
-            # data_transformation_artifact = self.start_data_transformation(data_ingestion_artifact=data_ingestion_artifact)
+            data_transformation_artifact = self.start_data_transformation(data_ingestion_artifact=data_ingestion_artifact)
             
             # model_trainer_artifact = self.start_model_training(data_transformation_artifact=data_transformation_artifact)
           

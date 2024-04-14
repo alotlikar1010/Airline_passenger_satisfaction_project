@@ -41,4 +41,21 @@ class DataIngestionConfig:
             self.test_file_path = os.path.join(self.ingested_data_dir,data_ingestion_key[DATA_INGESTION_TEST_DIR_KEY])
             self.test_size = 0.2
         except Exception  as e:
-            raise AirlineException(e,sys)    
+            raise AirlineException(e,sys)   
+        
+class DataTransformationConfig:
+    
+    def __init__(self,training_pipeline_config:TrainingPipelineConfig):
+        try:
+            data_transformation_key = config_data[DATA_TRANSFORMATION_CONFIG_KEY]
+            
+            self.data_transformation_dir = os.path.join(training_pipeline_config.artifact_dir , data_transformation_key[DATA_TRANSFORMATION])
+            self.transformation_dir = os.path.join(self.data_transformation_dir,data_transformation_key[DATA_TRANSFORMATION_DIR_NAME_KEY])
+            self.transformed_train_dir = os.path.join(self.transformation_dir,data_transformation_key[DATA_TRANSFORMATION_TRAIN_DIR_NAME_KEY])
+            self.transformed_test_dir = os.path.join(self.transformation_dir,data_transformation_key[DATA_TRANSFORMATION_TEST_DIR_NAME_KEY])
+            self.preprocessed_dir = os.path.join(self.data_transformation_dir,data_transformation_key[DATA_TRANSFORMATION_PREPROCESSING_DIR_KEY])
+            self.feature_engineering_object_file_path =os.path.join(self.preprocessed_dir,data_transformation_key[DATA_TRANSFORMATION_FEA_ENG_FILE_NAME_KEY])
+            self.preprocessor_file_object_file_path=os.path.join(self.preprocessed_dir,data_transformation_key[DATA_TRANSFORMATION_PREPROCESSOR_NAME_KEY])
+            
+        except Exception as e:
+            raise AirlineException(e,sys)

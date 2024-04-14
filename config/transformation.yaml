@@ -1,0 +1,37 @@
+target_column:
+- satisfaction
+
+numerical_columns:
+- Flight_Distance
+
+categorical_columns:
+- Online_boarding
+- Inflight_wifi_service
+- Class
+- Type_of_Travel 
+- Inflight_entertainment
+- Ease_of_Online_booking
+- Leg_room_service
+- Customer_Type
+- Seat_comfort
+- On-board_service
+- Cleanliness
+
+drop_columns:
+- Gender 
+- Departure/Arrival_time_convenient
+- Gate_location
+- Food_and_drink
+- Online_boarding 
+- Baggage_handling
+- Checkin_service
+- Inflight_service
+- Age 
+- Arrival_Delay_in_Minutes
+- Departure_Delay_in_Minutes
+
+outlier_columns:
+- Flight_Distance
+
+scaling_columns:
+- Flight_Distance

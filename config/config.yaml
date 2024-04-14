@@ -3,10 +3,19 @@ training_pipeline_config:
   artifact_dir: artifact
 
 data_ingestion_config:
-  data_base: Exhibit_Art
-  collection_name: Data
+  data_base: Airline
+  collection_name: collection
   data_ingestion: data_ingestion
   raw_data_dir: raw_data
   ingested_dir: ingested_Data
   ingested_train_dir: Train
   ingested_test_dir: Test
+
+data_transformation_config:
+  data_transformation_dir: data_transformation
+  transformed_dir: transformed_data
+  transformed_train_dir: train
+  transformed_test_dir: test
+  preprocessing_dir: preprocessed
+  preprocessed_object_file_name: preprocessed.pkl
+  feature_eng_file: fea_eng.pkl

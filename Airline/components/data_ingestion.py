@@ -78,6 +78,10 @@ class DataIngestion:
         
         # Load data from the CSV file
         data = pd.read_csv(csv_file_path,index_col=0)
+        
+        data.columns = [c.replace(' ', '_') for c in data.columns]
+        
+        data['satisfaction'].replace({'neutral or dissatisfied': 0, 'satisfied': 1},inplace = True)
 
         size=self.data_ingestion_config.test_size
 

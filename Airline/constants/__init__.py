@@ -67,3 +67,16 @@ PREDICTION_YAML_FILE_PATH=os.path.join(ROOT_DIR,CONFIG_DIR,PREDICTION_YAML_FILE)
 
 ## Artifact Entity 
 ARTIFACT_ENTITY_YAML_FILE_PATH=os.path.join(os.getcwd(),'src','entity','artifact_entity.yaml')
+
+
+# Model Training 
+MODEL_TRAINING_CONFIG_KEY='model_trainer_config'
+MODEL_TRAINER_ARTIFACT_DIR = "model_training"
+MODEL_TRAINER_OBJECT = "model_object"
+MODEL_REPORT_FILE="model_report"
+
+# Saved Model 
+SAVED_MODEL_CONFIG_KEY='saved_model_config'
+SAVED_MODEL_DIR='directory'
+SAVED_MODEL_OBJECT='model_object'
+SAVED_MODEL_REPORT='report'

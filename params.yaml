@@ -1,0 +1,10 @@
+Accuracy_Score: '0.9494148444718201'
+Experiment: Experiment_01
+Model_name: Random_Forest_Classification
+Parameters:
+  max_depth: '22'
+  min_samples_leaf: '3'
+  min_samples_split: '20'
+  n_estimators: '262'
+  random_state: '67'
+Run_name: Trial

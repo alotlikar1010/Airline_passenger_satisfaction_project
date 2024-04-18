@@ -25,7 +25,6 @@ target_column = transformation_yaml[TARGET_COLUMN_KEY]
 numerical_columns = transformation_yaml[NUMERICAL_COLUMN_KEY] 
 categorical_columns=transformation_yaml[CATEGORICAL_COLUMNS]
 drop_columns=transformation_yaml[DROP_COLUMNS]
-
 # Transformation 
 outlier_columns=transformation_yaml[OUTLIER_COLUMNS]
 scaling_columns=transformation_yaml[SCALING_COLUMNS]
@@ -246,7 +245,7 @@ class DataTransformation:
 
         return numerical_columns, categorical_columns
 
-
+    
 
 
     def initiate_data_transformation(self):
@@ -265,13 +264,7 @@ class DataTransformation:
     
             logging.info(f"Train Data  :{train_df.shape}\
             Test Data :{test_df.shape} ")    
-            
-            for i in categorical_columns:
-                train_df[i] = train_df[i].astype('object')
-                test_df[i] = test_df[i].astype('object')
-            
-            
-              
+          
             logging.info(f"Target Column :{target_column}")
             logging.info(f"Numerical Column :{numerical_columns}")
             logging.info(f"Categorical Column :{categorical_columns}")

@@ -18,3 +18,8 @@ class DataTransformationArtifact:
     feature_engineering_object_file_path: str
     
 # data transformation artifact end here
+
+@dataclass
+class ModelTrainerArtifact:
+    trained_model_file_path:str
+    model_artifact_report:str

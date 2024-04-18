@@ -59,3 +59,27 @@ class DataTransformationConfig:
             
         except Exception as e:
             raise AirlineException(e,sys)
+        
+class ModelTrainingConfig:
+    
+    def __init__(self,training_pipeline_config:TrainingPipelineConfig):
+        
+        model_training_key=config_data[MODEL_TRAINING_CONFIG_KEY]
+
+        
+        self.model_training_dir = os.path.join(training_pipeline_config.artifact_dir ,model_training_key[MODEL_TRAINER_ARTIFACT_DIR])
+        self.model_object_file_path = os.path.join(self.model_training_dir,model_training_key[MODEL_TRAINER_OBJECT])
+        self.model_report =  os.path.join(self.model_training_dir,model_training_key[MODEL_REPORT_FILE])
+        
+        mlflow_config_key=model_training_key['mlflow']
+
+        self.mlflow_run_id = os.path.join(mlflow_config_key['run_id'])
+        self.mlflow_experiment=os.path.join(mlflow_config_key['experiment'])
+        
+
+class SavedModelConfig:
+    
+    def __init__(self):
+        saved_model_config_key=config_data[SAVED_MODEL_CONFIG_KEY]
+        ROOT_DIR=os.getcwd()
+        self.saved_model_dir=os.path.join(ROOT_DIR,saved_model_config_key[SAVED_MODEL_DIR])       

@@ -64,7 +64,7 @@ class DataIngestion:
         except Exception as e:
             raise AirlineException(e, sys) from e 
         
-        
+ 
         
     def split_csv_to_train_test(self,csv_file_path):
         
@@ -80,7 +80,7 @@ class DataIngestion:
         data = pd.read_csv(csv_file_path,index_col=0)
         
         data.columns = [c.replace(' ', '_') for c in data.columns]
-        
+             
         data['satisfaction'].replace({'neutral or dissatisfied': 0, 'satisfied': 1},inplace = True)
 
         size=self.data_ingestion_config.test_size

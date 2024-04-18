@@ -6,6 +6,7 @@ from Airline.entity.config_entity import *
 from Airline.entity.artifact_entity import *
 from Airline.components.data_ingestion import DataIngestion
 from Airline.components.data_transformation import DataTransformation
+from Airline.components.model_trainer import *
 import  sys
 
 
@@ -44,16 +45,16 @@ class Pipeline():
         
 
    
-    # def start_model_training(self,data_transformation_artifact: DataTransformationArtifact) -> ModelTrainerArtifact:
-    #     try:
-    #         model_trainer = ModelTrainer(model_training_config=ModelTrainingConfig(self.training_pipeline_config),
-    #                                     data_transformation_artifact=data_transformation_artifact)   
+    def start_model_training(self,data_transformation_artifact: DataTransformationArtifact) -> ModelTrainerArtifact:
+        try:
+            model_trainer = ModelTrainer(model_training_config=ModelTrainingConfig(self.training_pipeline_config),
+                                        data_transformation_artifact=data_transformation_artifact)   
             
-    #         logging.info("Model Trainer intiated")
+            logging.info("Model Trainer intiated")
 
-    #         return model_trainer.start_model_training()
-    #     except Exception as e:
-    #         raise ApplicationException(e,sys) from e  
+            return model_trainer.start_model_training()
+        except Exception as e:
+            raise AirlineException(e,sys) from e  
 
             
          
@@ -65,7 +66,7 @@ class Pipeline():
            
             data_transformation_artifact = self.start_data_transformation(data_ingestion_artifact=data_ingestion_artifact)
             
-            # model_trainer_artifact = self.start_model_training(data_transformation_artifact=data_transformation_artifact)
+            model_trainer_artifact = self.start_model_training(data_transformation_artifact=data_transformation_artifact)
           
          
         except Exception as e:
